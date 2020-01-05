@@ -1,0 +1,164 @@
+\hypertarget{classminicopier_1_1_throughput_limit_input_stream}{}\doxysection{minicopier.\+Throughput\+Limit\+Input\+Stream Class Reference}
+\label{classminicopier_1_1_throughput_limit_input_stream}\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+Inheritance diagram for minicopier.\+Throughput\+Limit\+Input\+Stream\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classminicopier_1_1_throughput_limit_input_stream}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a262d050c6fb9bb4c42c5800271a3f88f}{Throughput\+Limit\+Input\+Stream}} (Input\+Stream in)
+\item 
+\mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a0d9d6d87f54c52f95e5fe3ec2e3905b9}{Throughput\+Limit\+Input\+Stream}} (Input\+Stream in, long bytes\+Per\+Second)
+\item 
+void \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a6ca0f3bf55ef408ecf0a691fbecb3158}{set\+Underlying\+Input\+Stream}} (Input\+Stream in)
+\item 
+int \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a7063a0d13255c089bab9bb2aa1eece0a}{read}} ()  throws I\+O\+Exception 
+\item 
+int \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a42cfce810235c817109217d04f280041}{read}} (byte\mbox{[}$\,$\mbox{]} bytes)  throws I\+O\+Exception 
+\item 
+int \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a6bd38b5c12237399a5ca3b33373544ab}{read}} (byte\mbox{[}$\,$\mbox{]} bytes, int off, int len)  throws I\+O\+Exception 
+\item 
+long \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a6df705477161709d9b04f625d9ae2422}{skip}} (long l)  throws I\+O\+Exception 
+\item 
+int \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a85f9a654b2d04d7e8e618c4bb3d1e398}{available}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_ac425d06c1ec2376949052e49a047b38d}{close}} ()  throws I\+O\+Exception 
+\item 
+synchronized void \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a20c8be8c43d463e6dc03aad6b7336998}{mark}} (int i)
+\item 
+synchronized void \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_a0bbb04d350bac70d25e3a6c146101ae3}{reset}} ()  throws I\+O\+Exception 
+\item 
+boolean \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_aa0cd8a11af32d71b7ac38df884fd12f7}{mark\+Supported}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream}{Throughput\+Limit\+Input\+Stream}} extends Input\+Stream to provide control over the transfer speed and limit it to a specified number of bytes per second. Whenever the bytes per second quota has been reached, the read and skip methods will lock and won\textquotesingle{}t return until either\+: 
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}new second commences, bringing the bytes read count back to zero for the new second \mbox{\hyperlink{}{set\+Throughput\+Limit(long)}} is called with a more permissive bytes per second value (different from 0), yielding to more bytes available for the current second.
+
+Setting the throughput limit to 0 effectively blocks all read and skip calls indefinitely. Any calls to the read or skip methods will lock, the only way to remove this lock being to call the \mbox{\hyperlink{}{set\+Throughput\+Limit(long)}} method with a value different from 0 from another thread.
+
+Setting the throughput limit to -\/1 or any other negative values will disable any limit and make this \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream}{Throughput\+Limit\+Input\+Stream}} behave just like a normal Input\+Stream.
+
+Finally, the \mbox{\hyperlink{}{set\+Underlying\+Input\+Stream(java.\+io.\+Input\+Stream)}} method allows to use the same \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream}{Throughput\+Limit\+Input\+Stream}} instance for multiple Input\+Stream instances, keeping the bytes count for the current second intact and thus the throughput limit stable. This does not hold true if a new \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream}{Throughput\+Limit\+Input\+Stream}} is created for each Input\+Stream, the bytes count for the current second starting at 0. ~\newline
+
+
+\begin{DoxyAuthor}{Author}
+Maxence Bernard 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a262d050c6fb9bb4c42c5800271a3f88f}\label{classminicopier_1_1_throughput_limit_input_stream_a262d050c6fb9bb4c42c5800271a3f88f}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!ThroughputLimitInputStream@{ThroughputLimitInputStream}}
+\index{ThroughputLimitInputStream@{ThroughputLimitInputStream}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{ThroughputLimitInputStream()}{ThroughputLimitInputStream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily minicopier.\+Throughput\+Limit\+Input\+Stream.\+Throughput\+Limit\+Input\+Stream (\begin{DoxyParamCaption}\item[{Input\+Stream}]{in }\end{DoxyParamCaption})}
+
+Creates a new \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream}{Throughput\+Limit\+Input\+Stream}} with no initial throughput limit (-\/1 value).
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & underlying stream that is used to read data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a0d9d6d87f54c52f95e5fe3ec2e3905b9}\label{classminicopier_1_1_throughput_limit_input_stream_a0d9d6d87f54c52f95e5fe3ec2e3905b9}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!ThroughputLimitInputStream@{ThroughputLimitInputStream}}
+\index{ThroughputLimitInputStream@{ThroughputLimitInputStream}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{ThroughputLimitInputStream()}{ThroughputLimitInputStream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily minicopier.\+Throughput\+Limit\+Input\+Stream.\+Throughput\+Limit\+Input\+Stream (\begin{DoxyParamCaption}\item[{Input\+Stream}]{in,  }\item[{long}]{bytes\+Per\+Second }\end{DoxyParamCaption})}
+
+Creates a new \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream}{Throughput\+Limit\+Input\+Stream}} with an initial throughput limit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & underlying stream that is used to read data from \\
+\hline
+{\em bytes\+Per\+Second} & initial throughput limit in bytes per second \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\#set\+Throughput\+Limit(long) 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a85f9a654b2d04d7e8e618c4bb3d1e398}\label{classminicopier_1_1_throughput_limit_input_stream_a85f9a654b2d04d7e8e618c4bb3d1e398}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!available@{available}}
+\index{available@{available}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{available()}{available()}}
+{\footnotesize\ttfamily int minicopier.\+Throughput\+Limit\+Input\+Stream.\+available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_ac425d06c1ec2376949052e49a047b38d}\label{classminicopier_1_1_throughput_limit_input_stream_ac425d06c1ec2376949052e49a047b38d}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!close@{close}}
+\index{close@{close}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void minicopier.\+Throughput\+Limit\+Input\+Stream.\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a20c8be8c43d463e6dc03aad6b7336998}\label{classminicopier_1_1_throughput_limit_input_stream_a20c8be8c43d463e6dc03aad6b7336998}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!mark@{mark}}
+\index{mark@{mark}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{mark()}{mark()}}
+{\footnotesize\ttfamily synchronized void minicopier.\+Throughput\+Limit\+Input\+Stream.\+mark (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_aa0cd8a11af32d71b7ac38df884fd12f7}\label{classminicopier_1_1_throughput_limit_input_stream_aa0cd8a11af32d71b7ac38df884fd12f7}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!markSupported@{markSupported}}
+\index{markSupported@{markSupported}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{markSupported()}{markSupported()}}
+{\footnotesize\ttfamily boolean minicopier.\+Throughput\+Limit\+Input\+Stream.\+mark\+Supported (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a7063a0d13255c089bab9bb2aa1eece0a}\label{classminicopier_1_1_throughput_limit_input_stream_a7063a0d13255c089bab9bb2aa1eece0a}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!read@{read}}
+\index{read@{read}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int minicopier.\+Throughput\+Limit\+Input\+Stream.\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a42cfce810235c817109217d04f280041}\label{classminicopier_1_1_throughput_limit_input_stream_a42cfce810235c817109217d04f280041}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!read@{read}}
+\index{read@{read}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int minicopier.\+Throughput\+Limit\+Input\+Stream.\+read (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a6bd38b5c12237399a5ca3b33373544ab}\label{classminicopier_1_1_throughput_limit_input_stream_a6bd38b5c12237399a5ca3b33373544ab}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!read@{read}}
+\index{read@{read}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int minicopier.\+Throughput\+Limit\+Input\+Stream.\+read (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes,  }\item[{int}]{off,  }\item[{int}]{len }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a0bbb04d350bac70d25e3a6c146101ae3}\label{classminicopier_1_1_throughput_limit_input_stream_a0bbb04d350bac70d25e3a6c146101ae3}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!reset@{reset}}
+\index{reset@{reset}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily synchronized void minicopier.\+Throughput\+Limit\+Input\+Stream.\+reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a6ca0f3bf55ef408ecf0a691fbecb3158}\label{classminicopier_1_1_throughput_limit_input_stream_a6ca0f3bf55ef408ecf0a691fbecb3158}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!setUnderlyingInputStream@{setUnderlyingInputStream}}
+\index{setUnderlyingInputStream@{setUnderlyingInputStream}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{setUnderlyingInputStream()}{setUnderlyingInputStream()}}
+{\footnotesize\ttfamily void minicopier.\+Throughput\+Limit\+Input\+Stream.\+set\+Underlying\+Input\+Stream (\begin{DoxyParamCaption}\item[{Input\+Stream}]{in }\end{DoxyParamCaption})}
+
+Changes the underlying Input\+Stream which data is read from, keeping the bytes count for the current second intact.
+
+Note\+: the existing underlying Input\+Stream will not be closed, the \mbox{\hyperlink{classminicopier_1_1_throughput_limit_input_stream_ac425d06c1ec2376949052e49a047b38d}{close()}} method must be called prior to calling this method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & the new Input\+Stream to read data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classminicopier_1_1_throughput_limit_input_stream_a6df705477161709d9b04f625d9ae2422}\label{classminicopier_1_1_throughput_limit_input_stream_a6df705477161709d9b04f625d9ae2422}} 
+\index{minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}!skip@{skip}}
+\index{skip@{skip}!minicopier.ThroughputLimitInputStream@{minicopier.ThroughputLimitInputStream}}
+\doxysubsubsection{\texorpdfstring{skip()}{skip()}}
+{\footnotesize\ttfamily long minicopier.\+Throughput\+Limit\+Input\+Stream.\+skip (\begin{DoxyParamCaption}\item[{long}]{l }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Doxgen/\+\_\+\+\_\+\+Project\+\_\+minicopier-\/master/minicopier-\/master/src/minicopier/\mbox{\hyperlink{_throughput_limit_input_stream_8java}{Throughput\+Limit\+Input\+Stream.\+java}}\end{DoxyCompactItemize}

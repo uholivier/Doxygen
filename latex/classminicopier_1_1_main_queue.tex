@@ -1,0 +1,101 @@
+\hypertarget{classminicopier_1_1_main_queue}{}\doxysection{minicopier.\+Main\+Queue Class Reference}
+\label{classminicopier_1_1_main_queue}\index{minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classminicopier_1_1_main_queue_1_1_transfers_model}{Transfers\+Model}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classminicopier_1_1_main_queue_a5058ab9513ce883ea4f45f868c096801}{Main\+Queue}} (\mbox{\hyperlink{classminicopier_1_1_copier}{Copier}} c)
+\item 
+synchronized void \mbox{\hyperlink{classminicopier_1_1_main_queue_a5c2e985f1e05f2a2442e768861dc58cf}{add\+File}} (\mbox{\hyperlink{classminicopier_1_1_file_to_transfer}{File\+To\+Transfer}} file)
+\item 
+Default\+Table\+Model \mbox{\hyperlink{classminicopier_1_1_main_queue_a11c450ac295bd377902f27babb3ee124}{get\+Table\+Model}} ()
+\item 
+synchronized \mbox{\hyperlink{classminicopier_1_1_file_to_transfer}{File\+To\+Transfer}} \mbox{\hyperlink{classminicopier_1_1_main_queue_af97d7e7c2a8da3a2d9fc7fddf0a31b6a}{extract\+First}} ()
+\item 
+synchronized boolean \mbox{\hyperlink{classminicopier_1_1_main_queue_af57bfec1fb770474fa730413a45d48bd}{is\+Empty}} ()
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classminicopier_1_1_main_queue_ad022d10ab0776a3a7f79b40c2a433049}{put\+First}} (int\mbox{[}$\,$\mbox{]} i)
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classminicopier_1_1_main_queue_abfc5cd7b4acac5e7c2f41d6f346c50d2}{put\+Last}} (int i\mbox{[}$\,$\mbox{]})
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classminicopier_1_1_main_queue_a1bf893f7c044dd14ef0f85c138c2738a}{put\+Up}} (int\mbox{[}$\,$\mbox{]} i)
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classminicopier_1_1_main_queue_a32c170d552af7c3398cc286116d651d5}{put\+Down}} (int i\mbox{[}$\,$\mbox{]})
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classminicopier_1_1_main_queue_aea7d5975e5be47425ebb2de96cec1f90}{remove}} (int i\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_a5058ab9513ce883ea4f45f868c096801}\label{classminicopier_1_1_main_queue_a5058ab9513ce883ea4f45f868c096801}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!MainQueue@{MainQueue}}
+\index{MainQueue@{MainQueue}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{MainQueue()}{MainQueue()}}
+{\footnotesize\ttfamily minicopier.\+Main\+Queue.\+Main\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classminicopier_1_1_copier}{Copier}}}]{c }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_a5c2e985f1e05f2a2442e768861dc58cf}\label{classminicopier_1_1_main_queue_a5c2e985f1e05f2a2442e768861dc58cf}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!addFile@{addFile}}
+\index{addFile@{addFile}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{addFile()}{addFile()}}
+{\footnotesize\ttfamily synchronized void minicopier.\+Main\+Queue.\+add\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classminicopier_1_1_file_to_transfer}{File\+To\+Transfer}}}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_af97d7e7c2a8da3a2d9fc7fddf0a31b6a}\label{classminicopier_1_1_main_queue_af97d7e7c2a8da3a2d9fc7fddf0a31b6a}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!extractFirst@{extractFirst}}
+\index{extractFirst@{extractFirst}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{extractFirst()}{extractFirst()}}
+{\footnotesize\ttfamily synchronized \mbox{\hyperlink{classminicopier_1_1_file_to_transfer}{File\+To\+Transfer}} minicopier.\+Main\+Queue.\+extract\+First (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Remove and send the first element in queue \mbox{\Hypertarget{classminicopier_1_1_main_queue_a11c450ac295bd377902f27babb3ee124}\label{classminicopier_1_1_main_queue_a11c450ac295bd377902f27babb3ee124}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!getTableModel@{getTableModel}}
+\index{getTableModel@{getTableModel}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{getTableModel()}{getTableModel()}}
+{\footnotesize\ttfamily Default\+Table\+Model minicopier.\+Main\+Queue.\+get\+Table\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_af57bfec1fb770474fa730413a45d48bd}\label{classminicopier_1_1_main_queue_af57bfec1fb770474fa730413a45d48bd}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily synchronized boolean minicopier.\+Main\+Queue.\+is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_a32c170d552af7c3398cc286116d651d5}\label{classminicopier_1_1_main_queue_a32c170d552af7c3398cc286116d651d5}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!putDown@{putDown}}
+\index{putDown@{putDown}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{putDown()}{putDown()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} minicopier.\+Main\+Queue.\+put\+Down (\begin{DoxyParamCaption}\item[{int}]{i\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_ad022d10ab0776a3a7f79b40c2a433049}\label{classminicopier_1_1_main_queue_ad022d10ab0776a3a7f79b40c2a433049}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!putFirst@{putFirst}}
+\index{putFirst@{putFirst}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{putFirst()}{putFirst()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} minicopier.\+Main\+Queue.\+put\+First (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_abfc5cd7b4acac5e7c2f41d6f346c50d2}\label{classminicopier_1_1_main_queue_abfc5cd7b4acac5e7c2f41d6f346c50d2}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!putLast@{putLast}}
+\index{putLast@{putLast}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{putLast()}{putLast()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} minicopier.\+Main\+Queue.\+put\+Last (\begin{DoxyParamCaption}\item[{int}]{i\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_a1bf893f7c044dd14ef0f85c138c2738a}\label{classminicopier_1_1_main_queue_a1bf893f7c044dd14ef0f85c138c2738a}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!putUp@{putUp}}
+\index{putUp@{putUp}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{putUp()}{putUp()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} minicopier.\+Main\+Queue.\+put\+Up (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classminicopier_1_1_main_queue_aea7d5975e5be47425ebb2de96cec1f90}\label{classminicopier_1_1_main_queue_aea7d5975e5be47425ebb2de96cec1f90}} 
+\index{minicopier.MainQueue@{minicopier.MainQueue}!remove@{remove}}
+\index{remove@{remove}!minicopier.MainQueue@{minicopier.MainQueue}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} minicopier.\+Main\+Queue.\+remove (\begin{DoxyParamCaption}\item[{int}]{i\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Doxgen/\+\_\+\+\_\+\+Project\+\_\+minicopier-\/master/minicopier-\/master/src/minicopier/\mbox{\hyperlink{_main_queue_8java}{Main\+Queue.\+java}}\end{DoxyCompactItemize}
